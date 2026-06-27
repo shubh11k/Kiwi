@@ -1,0 +1,362 @@
+/* ===========================
+   GENERAL
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ffd6e8,#ffeef5,#fff7fa);
+    overflow-x:hidden;
+    color:#333;
+}
+
+/* ===========================
+   LOADING SCREEN
+=========================== */
+
+#loading-screen{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#ff7eb3,#ff4d88);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    z-index:9999;
+}
+
+#loading-screen h1{
+    font-size:45px;
+    font-family:'Great Vibes',cursive;
+    margin-bottom:15px;
+}
+
+#loading-screen p{
+    font-size:20px;
+    margin-bottom:35px;
+}
+
+.loader{
+    display:flex;
+    gap:12px;
+}
+
+.loader span{
+    width:16px;
+    height:16px;
+    background:white;
+    border-radius:50%;
+    animation:bounce 1s infinite;
+}
+
+.loader span:nth-child(2){
+    animation-delay:.2s;
+}
+
+.loader span:nth-child(3){
+    animation-delay:.4s;
+}
+
+@keyframes bounce{
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+/* ===========================
+   WEBSITE
+=========================== */
+
+.hidden{
+    display:none;
+}
+
+.page{
+    min-height:100vh;
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+    text-align:center;
+}
+
+.page.active{
+    display:flex;
+}
+
+.title{
+    font-size:55px;
+    font-family:'Great Vibes',cursive;
+    color:#ff2f75;
+    margin-bottom:40px;
+}
+
+/* ===========================
+   ENVELOPE
+=========================== */
+
+.envelope{
+    position:relative;
+    width:320px;
+    height:220px;
+    background:#ff7aa7;
+    border-radius:12px;
+    overflow:hidden;
+    cursor:pointer;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.flap{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:110px;
+    background:#ff5d93;
+    clip-path:polygon(0 0,50% 100%,100% 0);
+    transform-origin:top;
+    transition:1s;
+}
+
+.letter{
+    position:absolute;
+    width:90%;
+    left:5%;
+    bottom:10px;
+    background:white;
+    border-radius:10px;
+    padding:20px;
+    transition:1s;
+}
+
+.envelope.open .flap{
+    transform:rotateX(180deg);
+}
+
+.envelope.open .letter{
+    transform:translateY(-120px);
+}
+
+.letter h2{
+    color:#ff2f75;
+    margin-bottom:15px;
+}
+
+.letter p{
+    line-height:1.8;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+button{
+    margin-top:40px;
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:#ff4d88;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+button:hover{
+    transform:translateY(-5px) scale(1.05);
+    background:#ff2f75;
+}
+
+/* ===========================
+   LETTER PAGE
+=========================== */
+
+.paper{
+    width:80%;
+    max-width:800px;
+    background:white;
+    border-radius:20px;
+    padding:45px;
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+.paper h1{
+    font-family:'Great Vibes',cursive;
+    color:#ff2f75;
+    font-size:50px;
+    margin-bottom:30px;
+}
+
+.paper p{
+    font-size:22px;
+    line-height:2;
+}
+
+/* ===========================
+   REASON CARDS
+=========================== */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+    width:90%;
+    max-width:1000px;
+    margin-top:40px;
+}
+
+.card{
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(12px);
+    padding:30px;
+    border-radius:20px;
+    font-size:20px;
+    transition:.4s;
+    box-shadow:0 12px 25px rgba(0,0,0,.1);
+}
+
+.card:hover{
+    transform:translateY(-12px);
+}
+
+/* ===========================
+   PROMISE PAGE
+=========================== */
+
+.promise-box{
+    width:80%;
+    max-width:700px;
+    background:white;
+    border-radius:20px;
+    padding:40px;
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+}
+
+.promise-box p{
+    font-size:24px;
+    margin:18px 0;
+}
+
+/* ===========================
+   FINAL PAGE
+=========================== */
+
+#final-page{
+    background:linear-gradient(180deg,#120018,#220033,#000);
+    color:white;
+}
+
+.love{
+    font-family:'Great Vibes',cursive;
+    font-size:90px;
+    color:#ff8ab6;
+    animation:heartbeat 1.5s infinite;
+}
+
+.ending{
+    margin-top:30px;
+    font-size:24px;
+    line-height:2;
+    max-width:800px;
+}
+
+/* ===========================
+   HEARTS
+=========================== */
+
+.hearts{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.hearts span{
+    position:absolute;
+    bottom:-50px;
+    font-size:25px;
+    color:#ff4d88;
+    animation:float 12s linear infinite;
+}
+
+.hearts span:nth-child(1){left:5%;animation-duration:9s;}
+.hearts span:nth-child(2){left:20%;animation-duration:12s;}
+.hearts span:nth-child(3){left:40%;animation-duration:10s;}
+.hearts span:nth-child(4){left:60%;animation-duration:13s;}
+.hearts span:nth-child(5){left:80%;animation-duration:11s;}
+.hearts span:nth-child(6){left:95%;animation-duration:9s;}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+    }
+
+}
+
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.title{
+    font-size:40px;
+}
+
+.paper{
+    width:95%;
+    padding:30px;
+}
+
+.paper p{
+    font-size:18px;
+}
+
+.love{
+    font-size:60px;
+}
+
+.promise-box p{
+    font-size:20px;
+}
+
+button{
+    width:90%;
+}
+
+}
